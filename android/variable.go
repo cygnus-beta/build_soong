@@ -20,6 +20,8 @@ import (
 	"runtime"
 	"strings"
 
+	"cygnus/soong/android"
+
 	"github.com/google/blueprint/proptools"
 )
 
@@ -175,6 +177,9 @@ type variableProperties struct {
 		Device_support_hwfde_perf struct {
 			Cflags []string
 		}
+
+		// Include cygnus variables
+		Cygnus android.Product_variables
 	} `android:"arch_variant"`
 }
 
@@ -441,6 +446,9 @@ type productVariables struct {
 	SelinuxIgnoreNeverallows bool `json:",omitempty"`
 
 	SepolicySplit bool `json:",omitempty"`
+
+	// Include cygnus variables.
+	Cygnus android.ProductVariables
 }
 
 func boolPtr(v bool) *bool {
